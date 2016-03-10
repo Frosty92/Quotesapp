@@ -1,0 +1,14 @@
+.add-margin {  
+    margin-top: 50px;
+}
+
+.quote {
+    margin:10px 10px;
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 2px #ccc; 
+    background-color: #fff6e0;
+    height: 150px !important;
+    width:350px;
+}
+
+
