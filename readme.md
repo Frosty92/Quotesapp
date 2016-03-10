@@ -11,7 +11,7 @@ If the user wants to contribute to the quotes  database by adding his own, he ha
 
 **Website logic**
 
-The codebase is neatly organized into three major sections: Models, Views, Controllers. Almost all my code is concentrated in these folders. Models are found in the app folder.
+The codebase is neatly organized into three major sections: Models, Views, Controllers. Almost all my code is concentrated in these folders. 
 
 **Models**:
 
