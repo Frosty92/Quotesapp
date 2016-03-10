@@ -1,27 +1,31 @@
-# Laravel PHP Framework
+# QuotesApp
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+This app is written in PHP using the Laravel 5.2 framework on the backend, and BootStrap as the styling framework on the frontend. MySQL served as the database for this project.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
+**About**
 
-Laravel is accessible, yet powerful, providing powerful tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+Anyone can access the homepage, where the viewer is treated to famous quotes by famous people, which are retrieved from the database. The viewer can also play Guess The Quote, where he is shown the quote and has to input the last name of the author. His answer is compared to the quote's actual author and if it matches,  his score increments by one and he is shown a positive response; if he answers incorrectly, he is shown the correct answer. This process continues until there are no more quotes in the database, at which time the user is shown the Game Over message. 
 
-## Official Documentation
+If the user wants to contribute to the quotes  database by adding his own, he has to signup/login. The user can view and delete all of his quotes via  the dashboard, which is a secure route only available to authorized users.
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
 
-## Contributing
+**Website logic**
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+The codebase is neatly organized into three major sections: Models, Views, Controllers. Almost all my code is concentrated in these folders. Models are found in the app folder.
 
-## Security Vulnerabilities
+**Models**:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+Models are found in the `app` folder
+There are three Models; `Quote`, `Author`, `Admin`. 
 
-## License
+`Quote` has a `one-to-many` relationship with both the `Admin` model and `Author` model, which in turn have a `has-many` relationship with `Quote`. The table relating to the `Quote` model stores the `quote_id`, `admin_id`, `author_id`. 
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+`Admin` are the authenticated users who are allowed to post/delete quotes and have access a dashboard where they can view/delete their quotes.
+
+`Author`: Author of the quote(Shakespeare for example). If the user wants, he can view all the quotes in the database by a particular author.
+
+**Views**:
+ Views are found in `app/views`. All the routes relating to the views can be found at app/http/routes.php. I tried to make the views as modular as possible so they are broken down into different folders, corresponding to their use. 
+ 
+ **Controllers**:
+  Controllers are found in `app/http`. 
